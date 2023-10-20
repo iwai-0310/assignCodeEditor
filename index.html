@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-        <title>Code Editor</title>
-    </head>
-    <body>
-        <!-- Header section  -->
-        <header>
 
-        </header>
-        <!--Middle section for content of the code editor-->
-        <div class="content">
-            
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header section  -->
+    <header>
+
+    </header>
+    <!--Middle section ,container of the code editor-->
+    <div class="container">
+        <!-- Top of the container for the three buttons -->
+        <div class="container__top">
+
         </div>
-        <!-- footer section -->
-        <footer>
+        <!-- Left of the container as the code input field -->
+        <div class="container__left">
+            <label>HTML</label>
+            <textarea id="html__code" class="container__left__textarea"></textarea>
 
-        </footer>
-    </body>
+            <label>CSS</label>
+            <textarea id="css__code" class="container__left__textarea"></textarea>
+        </div>
+        <!-- Right of the container to output the code -->
+        <div class="container__right">
+            <iframe id="output" class="container__right_iframe"></iframe>
+        </div>
+        <!-- bottom of the code for run button -->
+        <div class="container__bottom">
+
+        </div>
+
+
+    </div>
+    <!-- footer section -->
+    <footer>
+
+    </footer>
+</body>
+
 </html>
