@@ -17,19 +17,28 @@
     <div class="container">
         <!-- Top of the container for the three buttons -->
         <div class="container__top">
-
+            <button class="container__top__btn btn--copy" type="btn">COPY</button>
+            <button class="container__top__btn btn--save" type="btn">SAVE</button>
+            <button class="container__top__btn btn--lock" type="checkbox">LOCK</button>
         </div>
-        <!-- Left of the container as the code input field -->
-        <div class="container__left">
-            <label>HTML</label>
-            <textarea id="html__code" class="container__left__textarea"></textarea>
-
-            <label>CSS</label>
-            <textarea id="css__code" class="container__left__textarea"></textarea>
-        </div>
-        <!-- Right of the container to output the code -->
-        <div class="container__right">
-            <iframe id="output" class="container__right_iframe"></iframe>
+        <!-- Top of the container as the code input field -->
+        <div class="container__middle">
+            <div class="container__middle__top">
+                <div class="container__middle__top--left">
+                    <label>HTML</label>
+                    <textarea id="html__code" class="container__middle__top__textarea"></textarea>
+                </div>
+                <div class="container__middle__top--right">
+                    <label>CSS</label>
+                    <textarea id="css__code" class="container__middle__top__textarea"></textarea>
+                </div>
+            </div>
+            <!-- Bottom of the container to output the code -->
+            <div class="container__middle__bottom">
+                <label>Output</label>
+                <iframe id="output" class="container__middle__bottom__iframe"></iframe>
+            </div>
+        
         </div>
         <!-- bottom of the code for run button -->
         <div class="container__bottom">
