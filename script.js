@@ -70,8 +70,7 @@ function copyData() {
 
     // Get the "Copy" button element
     let copyButton=document.querySelector('.btn--copy');
-    
-
+   
     // Combine the content from both textareas
     const combinedContent = `${copyContentLeft}\n\n${copyContentRight}`;
 
@@ -86,6 +85,7 @@ function copyData() {
     try {
         // Execute the copy command 
         document.execCommand('copy');
+
         //Changing the button appearance and icon
         copyButton.style.border= '2px solid green';
         copyButton.style.color= 'green';
@@ -104,4 +104,31 @@ function copyData() {
 
     // Remove the temporary textarea
     document.body.removeChild(copyTextarea);
+}
+// Variable to track if the lock button is in lock or unlock state
+let isLocked = false; 
+
+function toggleLock() {
+    // Get the "Lock" button element
+    let lockButton = document.querySelector('.btn--lock');
+    
+    // Get the textareas
+    let leftTextarea = document.getElementById('left-input');
+    let rightTextarea = document.getElementById('right-input');
+
+    if (isLocked) {
+        // Unlock the textareas
+        leftTextarea.removeAttribute('readonly');
+        rightTextarea.removeAttribute('readonly');
+        lockButton.innerHTML = '<i class="fa-solid fa-unlock"></i> Unlock';
+        isLocked = false;
+        console.log(isLocked+ " if the button isLocked")
+    } else {
+        // Lock the textareas
+        leftTextarea.setAttribute('readonly', 'readonly');
+        rightTextarea.setAttribute('readonly', 'readonly');
+        lockButton.innerHTML = '<i class="fa-solid fa-lock"></i> Lock';
+        isLocked = true;
+        console.log(isLocked+ " if the button isLocked")
+    }
 }
