@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Editor</title>
+    <!-- Adding css  -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/80ff49a2d9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -13,32 +16,41 @@
     <header>
 
     </header>
-    <!--Middle section ,container of the code editor-->
+    <!-- Middle section, container for the code editor -->
     <div class="container">
-        <!-- Top of the container for the three buttons -->
+        <!-- Top of the container with buttons -->
         <div class="container__top">
-            <button class="container__top__btn btn--copy" type="btn">COPY</button>
-            <button class="container__top__btn btn--save" type="btn">SAVE</button>
-            <button class="container__top__btn btn--lock" type="checkbox">LOCK</button>
+            <!-- button to handle copy -->
+            <button class="container__top__btn btn--copy" onclick="copyData()" type="button"><i class="fa-regular fa-copy"></i>  Copy</button>
+            <!-- button to handle save -->
+            <button class="container__top__btn btn--save" type="button"><i class="fa-solid fa-copy"></i>  Save</button>
+            <!-- button to lock/unlock the textarea -->
+            <button class="container__top__btn btn--lock" type="checkbox"><i class="fa-solid fa-unlock"></i>  Lock</button>
         </div>
-        <!-- Top of the container as the code input field -->
+        <!-- Middle of the container for the editor content -->
         <div class="container__middle">
+            <!-- Top of the container as the code input field -->
             <div class="container__middle__top">
+                <!-- code input area sectioned into two parts part-1(left-side) -->
                 <div class="container__middle__top--left">
-                    <label>HTML</label>
-                    <textarea id="html__code" class="container__middle__top__textarea"></textarea>
+                    <label><i class="fa-brands fa-html5"></i> HTML</label>
+                    <textarea id="left-input" class="container__middle__top__textarea" onkeyup="run()"></textarea>
                 </div>
+                <!-- code input area sectioned into two parts part-2(right side) -->
                 <div class="container__middle__top--right">
-                    <label>CSS</label>
-                    <textarea id="css__code" class="container__middle__top__textarea"></textarea>
+                    <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
+                    <textarea id="right-input" class="container__middle__top__textarea" onkeyup="run()"></textarea>
                 </div>
             </div>
             <!-- Bottom of the container to output the code -->
             <div class="container__middle__bottom">
                 <label>Output</label>
-                <iframe id="output" class="container__middle__bottom__iframe"></iframe>
+                <iframe id="output" class="container__middle__bottom__iframe">
+                    <!-- Inline css to make the text inside iframe white -->
+                    <!-- <html><head><style>body{color: #fff;}</style></head><body></body></html> -->
+                </iframe>
+
             </div>
-        
         </div>
         <!-- bottom of the code for run button -->
         <div class="container__bottom">
@@ -51,6 +63,8 @@
     <footer>
 
     </footer>
+    <!-- adding script.js file  -->
+    <script src="script.js"></script>
 </body>
 
 </html>
