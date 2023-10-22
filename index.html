@@ -34,18 +34,19 @@
                 <!-- code input area sectioned into two parts part-1(left-side) -->
                 <div class="container__middle__top--left">
                     <label><i class="fa-brands fa-html5"></i> HTML</label>
-                    <textarea id="left-input" class="container__middle__top__textarea" onkeypress="Indent(event)"></textarea>
+                    <textarea id="left-input" class="container__middle__top__textarea" onkeyup="run()" onkeypress="HtmlIndent(event)"></textarea>
                 </div>
                 <!-- code input area sectioned into two parts part-2(right side) -->
                 <div class="container__middle__top--right">
                     <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
-                    <textarea id="right-input" class="container__middle__top__textarea" onkeyup="run()"></textarea>
+                    <textarea id="right-input" class="container__middle__top__textarea" onkeyup="run()" onkeypress="CssIndent(event)"></textarea>
                 </div>
             </div>
             <!-- Bottom of the container to output the code -->
             <div class="container__middle__bottom">
-                <label>Output</label>
+                <label><i class="fa-solid fa-square-poll-horizontal"></i> Output</label>
                 <iframe id="output" class="container__middle__bottom__iframe">
+                    
                     <!-- Inline css to make the text inside iframe white -->
                     <!-- <html><head><style>body{color: #fff;}</style></head><body></body></html> -->
                 </iframe>
