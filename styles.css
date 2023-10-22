@@ -18,6 +18,7 @@ body{
     display: flex;
     flex-direction: column;
 }
+/* Styles for the top container of the middle section */
 .container__top{
     flex-basis: 25%;
     max-height: 10%;
@@ -33,6 +34,57 @@ body{
     min-height:20px;
     margin: 0px 10px 0px 10px;
 }
+/* Styles for the lock/unlock button at the top container of the middle section */
+.toggle-control {
+    display: block;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.toggle-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.toggle-control input:checked ~ .control {
+    background-color: #490000;
+}
+
+.toggle-control .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px; /* height of the toggle */
+    width: 50px; /* width of the toggle */
+    border-radius: 10px;
+    background-color: #0f5132 ;
+    transition: background-color 0.15s ease-in;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        width: 20px; /* width  of the circle in the middle of toggle */
+        height: 20px; /* height  of the circle in the middle of toggle */
+        border-radius: 50%;
+        background: white;
+        transition: transform 0.15s ease-in;
+        transform: translateX(5px);
+    }
+}
+
+.toggle-control input:checked ~ .control:after {
+    transform: translateX(25px);
+}
+
+/* Styles for the  middle container of the middle section */
 .container__middle{
     flex-basis: 50%;
     padding: 10px;
@@ -77,6 +129,7 @@ body{
     border-radius: 20px;
     outline: 0;
 }
+/* styles for labels and logos for the output , html and css */
 label i{
     margin: 0px 10px 0px 10px;
 }
@@ -91,4 +144,7 @@ label{
 }
 icon--copy{
     color: green;
+}
+btn-lock{
+    background: #B6CCFE;
 }

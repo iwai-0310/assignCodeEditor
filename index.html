@@ -21,11 +21,18 @@
         <!-- Top of the container with buttons -->
         <div class="container__top">
             <!-- button to handle copy -->
-            <button class="container__top__btn btn--copy" onclick="copyData()" type="button"><i id="icon--copy" class="fa-regular fa-copy"></i>  Copy</button>
+            <button class="container__top__btn btn--copy" onclick="copyData()" type="button">  Copy</button>
             <!-- button to handle save -->
-            <button class="container__top__btn btn--save" onclick="saveData()" type="button"><i class="fa-solid fa-copy"></i>  Save</button>
+            <button class="container__top__btn btn--save" onclick="saveData()" type="button">Save</button>
+            <!-- Toggle for lock/unlock -->
+            <label class="toggle-control">
+                <input type="checkbox" checked="checked" onclick="toggleLock()">
+                <span class="control"></span>
+            </label>
             <!-- button to lock/unlock the textarea -->
-            <button class="container__top__btn btn--lock" onclick="toggleLock()" type="checkbox"><i class="fa-solid fa-unlock"></i>  Lock</button>
+            <button class="container__top__btn btn--lock" onclick="toggleLock()" type="checkbox" disabled> Unlock</button>
+            
+            
         </div>
         <!-- Middle of the container for the editor content -->
         <div class="container__middle">
@@ -34,7 +41,7 @@
                 <!-- code input area sectioned into two parts part-1(left-side) -->
                 <div class="container__middle__top--left">
                     <label><i class="fa-brands fa-html5"></i> HTML</label>
-                    <textarea id="left-input" class="container__middle__top__textarea" onkeyup="run()" onkeypress="HtmlIndent(event)"></textarea>
+                    <textarea id="left-input" class="container__middle__top__textarea"  onkeyup="run()" onkeypress="HtmlIndent(event)"></textarea>
                 </div>
                 <!-- code input area sectioned into two parts part-2(right side) -->
                 <div class="container__middle__top--right">
