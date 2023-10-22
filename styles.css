@@ -102,6 +102,7 @@ body{
 }
 .container__middle__top--left, .container__middle__top--right{
     flex:1;
+    margin: 0 10px;
 }
 .container__middle__top__textarea{
     width: 100%;
