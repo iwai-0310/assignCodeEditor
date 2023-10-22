@@ -29,39 +29,70 @@ function run(){
     }
 }
 // Function to download the content of right and left textarea to a file
-function saveData(){
-    //Define the data type for the download
-    let datatype= 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    //Get the content from the left and right textarea
-    let saveContentLeft= document.getElementById('left-input').value;
-    console.log(`${saveContentLeft}`);
-    let saveContentRight=document.getElementById('right-input').value;
-    // check if the content is there in either textarea
-    if(saveContentLeft || saveContentRight){
-        //Combine the content from both textareas
-        const combinedContent = `${saveContentLeft} \n \n \n${saveContentRight}`;
-        // let tableHtmlLeft=saveContentLeft.outerHTML;
-        // let tableHtmlRight=saveContentRight.outerHTML;
+// function saveData(){
+//     //Define the data type for the download
+//     let datatype= 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+//     //Get the content from the left and right textarea
+//     let saveContentLeft= document.getElementById('left-input').value;
+//     console.log(`${saveContentLeft}`);
+//     let saveContentRight=document.getElementById('right-input').value;
+//     // check if the content is there in either textarea
+//     if(saveContentLeft || saveContentRight){
+//         //Combine the content from both textareas
+//         const combinedContent = `${saveContentLeft} \n \n \n${saveContentRight}`;
+//         // let tableHtmlLeft=saveContentLeft.outerHTML;
+//         // let tableHtmlRight=saveContentRight.outerHTML;
 
-        // Create the download link element 
-        let downloadLink=document.createElement('a');
-        document.body.appendChild(downloadLink);
-        // Set the link href attribute with content and datatype
-        downloadLink.href='data:' + datatype + ', ' + encodeURIComponent(combinedContent);
-        // set a deafault name to the download filename
-        downloadLink.download='downloaded_code.docx';
-        // Trigger a click event
-        downloadLink.click();
-        // Remove the download link 
-        document.body.removeChild(downloadLink);
-    }
-    // Display error if no content is found in both of them.
-    else{
-        console.error("content not found")
-        console.warn('No Code to download');
-        alert('No Content to download ')
-    }
+//         // Create the download link element 
+//         let downloadLink=document.createElement('a');
+//         document.body.appendChild(downloadLink);
+//         // Set the link href attribute with content and datatype
+//         downloadLink.href='data:' + datatype + ', ' + encodeURIComponent(combinedContent);
+//         // set a deafault name to the download filename
+//         downloadLink.download='downloaded_code.docx';
+//         // Trigger a click event
+//         downloadLink.click();
+//         // Remove the download link 
+//         document.body.removeChild(downloadLink);
+//     }
+//     // Display error if no content is found in both of them.
+//     else{
+//         console.error("content not found")
+//         console.warn('No Code to download');
+//         alert('No Content to download ')
+//     }
+// }
+
+function saveData() {
+    // Get the content from the left and right textarea
+    let saveContentLeft = document.getElementById('left-input').value;
+    let saveContentRight = document.getElementById('right-input').value;
+
+    // Combine the content from both textareas
+    const combinedContent = `HTML code ->\n\n${saveContentLeft}\n\nCSS code ->\n\n${saveContentRight}`;
+
+    // Create a Blob object with the combined content
+    const blob = new Blob([combinedContent], { type: 'text/plain' });
+
+    // Create the download link element
+    let downloadLink = document.createElement('a');
+    document.body.appendChild(downloadLink);
+
+    // Set the link href attribute with the Blob
+    downloadLink.href = URL.createObjectURL(blob);
+
+    // Set a default name to the download filename
+    downloadLink.download = 'downloaded_code.txt';
+
+    // Trigger a click event
+    downloadLink.click();
+
+    // Remove the download link
+    document.body.removeChild(downloadLink);
 }
+
+
+
 
 
 
