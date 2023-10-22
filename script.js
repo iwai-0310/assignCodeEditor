@@ -108,11 +108,13 @@ function copyData() {
 // Variable to track if the lock button is in lock or unlock state
 let isLocked = false; 
 
+// Function to toggle lock and unlock button
 function toggleLock() {
+
     // Get the "Lock" button element
     let lockButton = document.querySelector('.btn--lock');
     
-    // Get the textareas
+    // Get both textareas
     let leftTextarea = document.getElementById('left-input');
     let rightTextarea = document.getElementById('right-input');
 
@@ -132,3 +134,35 @@ function toggleLock() {
         console.log(isLocked+ " if the button isLocked")
     }
 }
+// Function for normal indentation
+function Indent(event){
+    if(event.key === 'Enter'){
+        console.log("Enter key pressed");
+        event.preventDefault(); // Prevent the default Enter key behavior
+
+        const textarea = event.target; // Get the textarea element
+        const cursorPosition = textarea.selectionStart;
+        const text = textarea.value;
+
+        // Find the current line
+        const lines = text.split('\n');
+        const currentLineIndex = text.substr(0, cursorPosition).split('\n').length - 1;
+        const currentLine = lines[currentLineIndex];
+
+        // Find the current indentation of the line
+        const indentationMatch = currentLine.match(/^\s*/);
+        const currentIndentation = indentationMatch ? indentationMatch[0] : '';
+
+        // Insert the current indentation + tab before the new line
+        const newLine = '\n' + currentIndentation + '   ';
+        console.log(newLine);
+        const newText = text.substring(0, cursorPosition) + newLine + text.substring(cursorPosition);
+        console.log(newText);
+        textarea.value = newText;
+
+        // Adjust the cursor position
+        textarea.selectionStart = cursorPosition + newLine.length;
+        textarea.selectionEnd = cursorPosition + newLine.length;
+    }
+ }
+
